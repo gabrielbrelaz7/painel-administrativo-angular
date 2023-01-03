@@ -1,0 +1,32 @@
+
+<div class="row">
+
+    <div class="col-12">
+
+        <app-video [options]="{autoplay: true, controls: true, sources: [{ src: sourceVideo, type: 'video/mp4' }]}">
+        </app-video>
+
+        <br>
+
+        <button nbButton="nbButton" status="success" (click)="uploadVideo()">Enviar video</button>
+
+        <button nbButton="nbButton" status="success" (click)="voltar()">Voltar</button> 
+
+        <div class="form-group">
+            <label class="label">Carregar novo vídeo</label>
+            <input 
+            nbInput
+            type="file"
+            fullWidth
+            (change)="onChange($event)"
+            >
+        </div>
+
+        <nb-progress-bar *ngIf="progressBar > 0" [value]="progressBar" status="primary">
+        </nb-progress-bar>
+        <div *ngIf="progressBar > 0" class="progressBar">{{progressBar}}% {{statusUpload}}</div>
+
+    </div>
+
+</div>
+

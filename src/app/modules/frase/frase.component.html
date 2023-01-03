@@ -1,0 +1,34 @@
+<nb-card>
+    <nb-card-header>
+        Seção Frase
+    </nb-card-header>
+    <nb-card-body>
+        <button nbButton="nbButton" status="success" (click)="voltar()">Voltar</button>
+        <form [formGroup]="formFrase" (ngSubmit)="salvarFormulario()">
+            <div class="form-group">
+                <label class="label">Título</label>
+                <textarea 
+                nbInput 
+                fullWidth 
+                placeholder="Frase de inspiração"
+                rows="10"
+                formControlName="texto"
+                [(ngModel)]="frase.texto"
+                required
+                >
+                </textarea>
+  
+            </div>
+
+            <div
+                class="msgError"
+                *ngIf="formFrase.controls.texto.errors?.required
+                        && formError">
+                Texto requerido
+            </div>
+
+            <button nbButton="nbButton" status="success">Atualizar</button>
+                
+            </form>
+        </nb-card-body>
+    </nb-card>

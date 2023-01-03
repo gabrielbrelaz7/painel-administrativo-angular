@@ -1,0 +1,53 @@
+<nb-card>
+    <nb-card-header>
+        Seção Contato
+    </nb-card-header>
+    <nb-card-body>
+        <button nbButton="nbButton" status="success" (click)="voltar()">Voltar</button>
+        <form [formGroup]="formContato" (ngSubmit)="salvarFormulario()">
+            <div class="form-group">
+                <label class="label">Celular</label>
+                <input
+                    type="text"
+                    nbInput
+                    fullWidth
+                    placeholder="DDD + Celular"
+                    formControlName="celular"
+                    [(ngModel)]="contato.celular"
+                    required="required">
+            </div>
+
+            <div
+                class="msgError"
+                *ngIf="formContato.controls.celular.errors?.required
+                        && formError">
+                Celular requerido
+            </div>
+
+
+            <div class="form-group">
+                <label class="label">Email</label>
+                <input
+                    type="text"
+                    nbInput
+                    fullWidth
+                    placeholder="DDD + Email"
+                    formControlName="email"
+                    [(ngModel)]="contato.email"
+                    mask="(00) 00000-0000"
+                    required="required"
+                    >
+            </div>
+
+            <div
+                class="msgError"
+                *ngIf="formContato.controls.email.errors?.required
+                        && formError">
+                Email requerido
+            </div>
+
+                <button nbButton="nbButton" status="success">Atualizar</button>
+                
+            </form>
+        </nb-card-body>
+    </nb-card>

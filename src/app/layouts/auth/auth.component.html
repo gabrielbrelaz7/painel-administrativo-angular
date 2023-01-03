@@ -1,0 +1,61 @@
+<nb-layout>
+
+  <nb-layout-column ></nb-layout-column>
+    <nb-layout-column >
+        <nb-card>
+            <nb-card-header>Login</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="formUsuario" (ngSubmit)="salvarUsuario()">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="label">Email address</label>
+                        <input
+                            type="email"
+                            nbInput fullWidth
+                            id="exampleInputEmail1"
+                            placeholder="Email"
+                            formControlName="email"
+                            required>
+                        </div>
+
+                        <div class="msgError" *ngIf="formUsuario.controls.email.errors?.required 
+                            && formError">               
+                            Email requerido  
+                        </div>
+
+                        <div class="msgError" *ngIf="formUsuario.controls.email.errors?.email 
+                        && formError">               
+                        Email deve ser válido   
+                    </div>
+
+                    <!-- <button nbButton (click)="showToastLogin(physicalPositions.TOP_RIGHT)">Top Right</button> -->
+
+    
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="label">Password</label>
+                            <input
+                                type="password"
+                                nbInput fullWidth
+                                id="exampleInputPassword1"
+                                placeholder="Password"
+                                formControlName="senha">
+                            </div>
+
+                            <div class="msgError" *ngIf="formUsuario.controls.senha.errors?.required 
+                            && formError">               
+                            Senha requerida  
+                        </div>
+
+                        <div class="msgError" *ngIf="formUsuario.controls.senha.errors?.minlength 
+                        && formError">               
+                        Senha deve ter no mínimo 6 caracteres  
+                        </div>
+    
+                            <button nbButton="nbButton" status="success">Login</button>
+                        </form>
+                    </nb-card-body>
+                </nb-card>
+            </nb-layout-column>
+
+            <nb-layout-column ></nb-layout-column>
+
+        </nb-layout>

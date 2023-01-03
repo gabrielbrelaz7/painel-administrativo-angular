@@ -1,0 +1,119 @@
+<button nbButton="nbButton" status="success" (click)="voltar()">Voltar</button>
+
+<div class="row">
+
+<div class="col-4">
+
+<nb-card>
+    <nb-card-header>
+        Web Design
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="formWebDesign" (ngSubmit)="salvarFormularioWebDesign()">
+            <div class="form-group">
+                <label class="label">Título</label>
+                <textarea 
+                nbInput 
+                fullWidth 
+                placeholder="Texto sobre webdesign"
+                rows="10"
+                formControlName="texto"
+                [(ngModel)]="webdesign.texto"
+                required
+                >
+                </textarea>
+  
+            </div>
+
+            <div
+                class="msgError"
+                *ngIf="formWebDesign.controls.texto.errors?.required
+                        && formError">
+                Texto requerido
+            </div>
+
+            <button nbButton="nbButton" status="success">Atualizar</button>
+                
+            </form>
+        </nb-card-body>
+    </nb-card>
+
+</div>
+
+<div class="col-4">
+
+    <nb-card>
+        <nb-card-header>
+            Frontend
+        </nb-card-header>
+        <nb-card-body>
+            <form [formGroup]="formFrontEnd" (ngSubmit)="salvarFormularioFrontEnd()">
+                <div class="form-group">
+                    <label class="label">Título</label>
+                    <textarea 
+                    nbInput 
+                    fullWidth 
+                    placeholder="Texto sobre frontend"
+                    rows="10"
+                    formControlName="texto"
+                    [(ngModel)]="frontEnd.texto"
+                    required
+                    >
+                    </textarea>
+      
+                </div>
+    
+                <div
+                    class="msgError"
+                    *ngIf="formFrontEnd.controls.texto.errors?.required
+                            && formError">
+                    Texto requerido
+                </div>
+    
+                <button nbButton="nbButton" status="success">Atualizar</button>
+                    
+                </form>
+            </nb-card-body>
+        </nb-card>
+    
+    </div>
+
+    <div class="col-4">
+
+        <nb-card>
+            <nb-card-header>
+                Backend
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="formBackEnd" (ngSubmit)="salvarFormularioBackEnd()">
+                    <div class="form-group">
+                        <label class="label">Título</label>
+                        <textarea 
+                        nbInput 
+                        fullWidth 
+                        placeholder="Texto sobre backend"
+                        rows="10"
+                        formControlName="texto"
+                        [(ngModel)]="backEnd.texto"
+                        required
+                        >
+                        </textarea>
+          
+                    </div>
+        
+                    <div
+                        class="msgError"
+                        *ngIf="formBackEnd.controls.texto.errors?.required
+                                && formError">
+                        Texto requerido
+                    </div>
+        
+                    <button nbButton="nbButton" status="success">Atualizar</button>
+                        
+                    </form>
+                </nb-card-body>
+            </nb-card>
+        
+        </div>  
+
+    </div>
